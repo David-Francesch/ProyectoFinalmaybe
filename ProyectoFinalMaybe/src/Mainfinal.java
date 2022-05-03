@@ -59,7 +59,7 @@ public class Mainfinal {
         Scanner sc= new Scanner(System.in);
 
         System.out.println("Desde que letra quieres empezar:");
-        String letra = sc.nextLine();
+        String letra = sc.nextLine().toLowerCase();
         char a = letra.charAt(0);
         // char a = 'A';
         // int unicode = a.charAt(0);
