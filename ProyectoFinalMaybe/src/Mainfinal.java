@@ -1,3 +1,5 @@
+package ProyectoFinalmaybe.ProyectoFinalMaybe.src;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,8 +7,9 @@ public class Mainfinal {
     public static void main(String[] args) throws Exception {
 
         // Cuadrado();
-        Matrices();
-        Abecedario2();
+        // Matrices();
+        // Abecedario2();
+        conPalabra();
     }
 
     public static void Cuadrado() {
@@ -80,6 +83,53 @@ public class Mainfinal {
                 }else{
                     matriz[i][j] = Character.toString(a);
                     a++;
+                }
+            }
+        }
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void conPalabra() {
+        Scanner sc= new Scanner(System.in);
+
+        char[][] matriz = new char[5][5];
+        String limpia = "";
+
+        System.out.println("Escribe la palabra con la que quieres empezar:");
+        String palabra = sc.nextLine().toUpperCase();
+        char letra = palabra.charAt(0);
+
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                for (int i = 0; i < palabra.length(); i++) {
+            
+                }
+            }
+   
+        }
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+
+                // matriz[i][j] = palabra.toCharArray()[i];
+
+                if (letra == 'X') {
+                    letra++;
+                }
+                              
+                if (letra > 'Z') {
+                    letra = 'A';
+                    matriz[i][j] = letra;
+                    letra++;
+                }else{
+                    matriz[i][j] = letra;
+                    letra++;
                 }
             }
         }
