@@ -1,4 +1,4 @@
-package ProyectoFinalmaybe.ProyectoFinalMaybe.src;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -100,6 +100,7 @@ public class Mainfinal {
 
         char[][] matriz = new char[5][5];
         String limpia = "";
+        int x = 0;
 
         System.out.println("Escribe la palabra con la que quieres empezar:");
         String palabra = sc.nextLine().toUpperCase();
@@ -108,29 +109,34 @@ public class Mainfinal {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                for (int i = 0; i < palabra.length(); i++) {
-            
+                if(x < palabra.length()){
+                    matriz[i][j] = palabra.charAt(x);
+                    x++;
+                }
                 }
             }
    
-        }
+        
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
 
                 // matriz[i][j] = palabra.toCharArray()[i];
+                if (matriz[i][j] == 0) {
+                    if (letra == 'X') {
+                        letra++;
+                    }
+                                  
+                    if (letra > 'Z') {
+                        letra = 'A';
+                        matriz[i][j] = letra;
+                        letra++;
+                    }else{
+                        matriz[i][j] = letra;
+                        letra++;
+                    }
+                    
+                }
 
-                if (letra == 'X') {
-                    letra++;
-                }
-                              
-                if (letra > 'Z') {
-                    letra = 'A';
-                    matriz[i][j] = letra;
-                    letra++;
-                }else{
-                    matriz[i][j] = letra;
-                    letra++;
-                }
             }
         }
 
