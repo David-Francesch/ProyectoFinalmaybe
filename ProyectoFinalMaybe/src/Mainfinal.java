@@ -106,7 +106,16 @@ public class Mainfinal {
         String palabra = sc.nextLine().toUpperCase();
         char letra = palabra.charAt(0);
 
+        for (int i = 0; i < palabra.length(); i++) {
+            for (int j = i + 1; j < matriz.length; j++) {
+                if (palabra.charAt(i) != palabra.charAt(j)) {
+                    limpia += palabra.charAt(i);
+                }
+            }
+        }
+        System.out.println(limpia);
 
+        // mete la palabra en la matriz
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 if(x < palabra.length()){
@@ -121,6 +130,9 @@ public class Mainfinal {
             for (int j = 0; j < matriz.length; j++) {
 
                 // matriz[i][j] = palabra.toCharArray()[i];
+                // if(matriz[i][j]){
+
+                // }
                 if (matriz[i][j] == 0) {
                     if (letra == 'X') {
                         letra++;
@@ -134,12 +146,11 @@ public class Mainfinal {
                         matriz[i][j] = letra;
                         letra++;
                     }
-                    
                 }
-
             }
         }
 
+        // muestra matriz
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 System.out.print(matriz[i][j]+" ");
