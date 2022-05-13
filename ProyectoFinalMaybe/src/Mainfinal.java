@@ -104,7 +104,6 @@ public class Mainfinal {
         
         System.out.println("Escribe la palabra con la que quieres empezar:");
         String palabra = sc.nextLine().toUpperCase();
-        char letra = palabra.charAt(0);
         
         for(int i = 0; i < palabra.length()-1; i++) {
             int contpa = 0;
@@ -117,48 +116,57 @@ public class Mainfinal {
                 limpia += palabra.charAt(i);
             }
         }
-
-        // for (int i = 0; i < palabra.length(); i++) {
-        //     for (int j = 0; j < matriz.length-1; j++) {
-        //         if (palabra.charAt(i) != palabra.charAt(j)) {
-        //             limpia += palabra.charAt(j);
-        //         }
-        //     }
-        // }
-
-        System.out.println(limpia);
-
-        // mete la palabra en la matriz
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if(x < limpia.length()){
-                    matriz[i][j] = limpia.charAt(x);
-                    x++;
-                }
-                }
-            }
-   
         
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-
-                // matriz[i][j] = palabra.toCharArray()[i];
-                // if(matriz[i][j]){
-
-                // }
-                if (matriz[i][j] == 0) {
-                    if (letra == 'X') {
-                        letra++;
+        // for (int i = 0; i < palabra.length(); i++) {
+            //     for (int j = 0; j < matriz.length-1; j++) {
+                //         if (palabra.charAt(i) != palabra.charAt(j)) {
+                    //             limpia += palabra.charAt(j);
+                    //         }
+                    //     }
+                    // }
+                    
+                    System.out.println(limpia);
+                    
+                    // mete la palabra en la matriz
+                    for (int i = 0; i < matriz.length; i++) {
+                        for (int j = 0; j < matriz.length; j++) {
+                            if(x < limpia.length()){
+                                matriz[i][j] = limpia.charAt(x);
+                                x++;
+                            }
+                        }
                     }
-                                  
-                    if (letra > 'Z') {
-                        letra = 'A';
-                        matriz[i][j] = letra;
-                        letra++;
-                    }else{
-                        matriz[i][j] = letra;
-                        letra++;
-                    }
+                    
+                    //mete el abecedario
+                    char letra = 'A';
+                    for (int i = 0; i < matriz.length; i++) {
+                        for (int j = 0; j < matriz.length; j++) {
+                            
+                            // matriz[i][j] = palabra.toCharArray()[i];
+                            // if(matriz[i][j]){
+                                
+                                // }
+                                for (int j2 = 0; j2 < limpia.length(); j2++) {
+                                    if(limpia.charAt(j2) != letra){
+                                        if (matriz[i][j] == 0) {
+                                            if (letra == 'X') {
+                                                letra++;
+                                }
+                                            
+                                if (letra > 'Z') {
+                                    letra = 'A';
+                                    matriz[i][j] = letra;
+                                    letra++;
+                                }else{
+                                    matriz[i][j] = letra;
+                                    letra++;
+                                }
+                            }
+
+
+                        }else{
+                            letra++;
+                        }
                 }
             }
         }
