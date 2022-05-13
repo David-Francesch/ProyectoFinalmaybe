@@ -101,25 +101,38 @@ public class Mainfinal {
         char[][] matriz = new char[5][5];
         String limpia = "";
         int x = 0;
-
+        
         System.out.println("Escribe la palabra con la que quieres empezar:");
         String palabra = sc.nextLine().toUpperCase();
         char letra = palabra.charAt(0);
-
-        for (int i = 0; i < palabra.length(); i++) {
-            for (int j = i + 1; j < matriz.length; j++) {
-                if (palabra.charAt(i) != palabra.charAt(j)) {
-                    limpia += palabra.charAt(i);
+        
+        for(int i = 0; i < palabra.length()-1; i++) {
+            int contpa = 0;
+            for (int j = 0; j < limpia.length(); j++) {
+                if (limpia.charAt(j) == palabra.charAt(i)) {
+                    contpa ++;
                 }
             }
+            if (contpa <= 0) {
+                limpia += palabra.charAt(i);
+            }
         }
+
+        // for (int i = 0; i < palabra.length(); i++) {
+        //     for (int j = 0; j < matriz.length-1; j++) {
+        //         if (palabra.charAt(i) != palabra.charAt(j)) {
+        //             limpia += palabra.charAt(j);
+        //         }
+        //     }
+        // }
+
         System.out.println(limpia);
 
         // mete la palabra en la matriz
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                if(x < palabra.length()){
-                    matriz[i][j] = palabra.charAt(x);
+                if(x < limpia.length()){
+                    matriz[i][j] = limpia.charAt(x);
                     x++;
                 }
                 }
@@ -159,3 +172,5 @@ public class Mainfinal {
         }
     }
 }
+
+
