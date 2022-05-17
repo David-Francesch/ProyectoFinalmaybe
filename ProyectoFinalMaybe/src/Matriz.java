@@ -70,7 +70,14 @@ public class Matriz {
         return esta;
     }
 
-
+    public String CifrarMensaje() {
+        Scanner sc= new Scanner(System.in);
+        String msjCif = "";
+        System.out.println("Dime el mensaje que quieras cifrar");
+        String msj = sc.nextLine();
+        
+        return msjCif;
+    }
 
     @Override
     public String toString() {
