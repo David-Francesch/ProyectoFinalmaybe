@@ -1,7 +1,7 @@
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Mainfinal {
     public static void main(String[] args) throws Exception {
@@ -116,14 +116,6 @@ public class Mainfinal {
                 limpia += palabra.charAt(i);
             }
         }
-        
-        // for (int i = 0; i < palabra.length(); i++) {
-            //     for (int j = 0; j < matriz.length-1; j++) {
-                //         if (palabra.charAt(i) != palabra.charAt(j)) {
-                    //             limpia += palabra.charAt(j);
-                    //         }
-                    //     }
-                    // }
                     
                     System.out.println(limpia);
                     
@@ -142,34 +134,27 @@ public class Mainfinal {
                     for (int i = 0; i < matriz.length; i++) {
                         for (int j = 0; j < matriz.length; j++) {
                             
-                            // matriz[i][j] = palabra.toCharArray()[i];
-                            // if(matriz[i][j]){
-                                
-                                // }
                                 for (int j2 = 0; j2 < limpia.length(); j2++) {
                                     if(limpia.charAt(j2) != letra){
                                         if (matriz[i][j] == 0) {
                                             if (letra == 'X') {
                                                 letra++;
+                                            }
+                                        }
+                                    }
                                 }
-                                            
-                                if (letra > 'Z') {
-                                    letra = 'A';
-                                    matriz[i][j] = letra;
-                                    letra++;
-                                }else{
-                                    matriz[i][j] = letra;
-                                    letra++;
+
+                                        if (letra > 'Z') {
+                                            letra = 'A';
+                                            matriz[i][j] = letra;
+                                            letra++;
+                                        }else{
+                                            matriz[i][j] = letra;
+                                            letra++;
+                                            break;
+                                        }
                                 }
-                            }
-
-
-                        }else{
-                            letra++;
-                        }
-                }
-            }
-        }
+                            }                                                             
 
         // muestra matriz
         for (int i = 0; i < matriz.length; i++) {
@@ -180,5 +165,4 @@ public class Mainfinal {
         }
     }
 }
-
 
