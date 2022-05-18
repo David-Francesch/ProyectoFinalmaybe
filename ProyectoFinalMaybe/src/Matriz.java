@@ -75,7 +75,24 @@ public class Matriz {
         String msjCif = "";
         System.out.println("Dime el mensaje que quieras cifrar");
         String msj = sc.nextLine();
-        
+
+        if (msj.length()/2 != 0) {
+            msj += 'X';
+        }
+
+        char a1,a2;
+        char b1,b2;
+
+        for (int i = 0; i < msj.length(); i+=2) {
+            for (int x = 0; x < matriz.length; x++) {
+                for (int y = 0; y < matriz.length; y++) {
+                    if (msj.charAt(i) == matriz[x][y]) {
+                        a1 = matriz[x][y];
+                    }
+                    System.out.println(x+","+y);
+                }
+            }
+        }       
         return msjCif;
     }
 
@@ -89,4 +106,5 @@ public class Matriz {
         }
         return null;
     }
+
 }
