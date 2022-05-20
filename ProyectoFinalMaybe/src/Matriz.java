@@ -80,18 +80,27 @@ public class Matriz {
             msj += 'X';
         }
 
-        int a1,a2;
-        int b1,b2;
+        int x1,y2;
+        int xx1,yy2;
+        int newx1, newy1, newxx1, newyy1;
 
-           for (int i = 0; i < msj.length() - 2; i++) {
-                a1 = EncuentraX(msj.charAt(i));
-                a2 = EncuentraY(msj.charAt(i));
-                System.out.println(a1+","+a2);
-                b1 = EncuentraX(msj.charAt(i + 1));
-                b2 = EncuentraY(msj.charAt(i + 1));
-
-                
-                    }
+        for (int i = 0; i < msj.length() - 1; i+=2) {
+            x1 = EncuentraX(msj.charAt(i));
+            y2 = EncuentraY(msj.charAt(i));
+            System.out.println("letra: "+msj.charAt(i)+x1+","+y2);
+            xx1 = EncuentraX(msj.charAt(i + 1));
+            yy2 = EncuentraY(msj.charAt(i + 1));
+            System.out.println("letra: "+msj.charAt(i+1)+xx1+","+yy2);
+            newx1 = EncuentraX1(x1, y2, xx1, yy2);
+            newy1 = EncuentraY1(x1, y2, xx1, yy2);
+            System.out.println("letra: "+msj.charAt(i)+newx1+","+newy1);
+            newxx1 = EncuentraX1(x1, y2, xx1, yy2);
+            newyy1 = EncuentraY1(x1, y2, xx1, yy2);
+            System.out.println("letra: "+msj.charAt(i+1)+newxx1+","+newyy1);
+        }
+        // for (int i = 0; i < msj.length() - 1; i+=2) {
+        // }
+               
                 
            
           
@@ -133,8 +142,46 @@ public class Matriz {
 
     public int EncuentraX1(int x, int y, int x1, int y1) {
         
+        int Coordx;
+
+        if (x == x1) {
+            if (x == 4) {
+                Coordx = 0;
+            }else{
+                Coordx = x;
+            }
+        }
+        if(y == y1) {
+            if (y == 4) {
+                Coordx = 0;
+            }else{
+                Coordx = y;
+            }
+        }else{
+            Coordx = x1;
+        }
+        return Coordx;
+    }
+
+    public int EncuentraY1(int x, int y, int x1, int y1) {
         
-        
-        return 0;
+        int Coordy;
+
+        if (x == x1) {
+            if (x == 4) {
+                Coordy = 0;
+            }else{
+                Coordy = x;
+            }
+        }else if(y == y1) {
+            if (y == 4) {
+                Coordy = 0;
+            }else{
+                Coordy = y;
+            }
+        }else{
+            Coordy = y1;
+        }
+        return Coordy;
     }
 }

@@ -8,6 +8,7 @@ public class Mainfinal {
 
         Matriz nz = new Matriz();
         nz.toString();
+
         nz.CifrarMensaje();
     }
 }
