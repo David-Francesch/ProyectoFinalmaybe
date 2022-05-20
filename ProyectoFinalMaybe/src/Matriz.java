@@ -74,25 +74,27 @@ public class Matriz {
         Scanner sc= new Scanner(System.in);
         String msjCif = "";
         System.out.println("Dime el mensaje que quieras cifrar");
-        String msj = sc.nextLine();
+        String msj = sc.nextLine().toUpperCase();
 
-        if (msj.length()/2 != 0) {
+        if (msj.length()%2 != 0) {
             msj += 'X';
         }
 
-        char a1,a2;
-        char b1,b2;
+        int a1,a2;
+        int b1,b2;
 
-        for (int i = 0; i < msj.length(); i+=2) {
-            for (int x = 0; x < matriz.length; x++) {
-                for (int y = 0; y < matriz.length; y++) {
-                    if (msj.charAt(i) == matriz[x][y]) {
-                        a1 = matriz[x][y];
+           for (int i = 0; i < msj.length() - 2; i++) {
+                a1 = EncuentraX(msj.charAt(i));
+                a2 = EncuentraY(msj.charAt(i));
+                System.out.println(a1+","+a2);
+                b1 = EncuentraX(msj.charAt(i + 1));
+                b2 = EncuentraY(msj.charAt(i + 1));
+
+                
                     }
-                    System.out.println(x+","+y);
-                }
-            }
-        }       
+                
+           
+          
         return msjCif;
     }
 
@@ -107,4 +109,32 @@ public class Matriz {
         return null;
     }
 
+    public int EncuentraX(char letra) {
+        for (int x = 0; x < matriz.length; x++) {
+            for (int y = 0; y < matriz.length; y++) {
+                if (matriz[x][y] == letra) {
+                    return x;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int EncuentraY(char letra) {
+        for (int x = 0; x < matriz.length; x++) {
+            for (int y = 0; y < matriz.length; y++) {
+                if (matriz[x][y] == letra) {
+                    return y;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int EncuentraX1(int x, int y, int x1, int y1) {
+        
+        
+        
+        return 0;
+    }
 }
