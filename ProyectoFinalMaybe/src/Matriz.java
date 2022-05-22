@@ -80,30 +80,27 @@ public class Matriz {
             msj += 'X';
         }
 
-        int x1,y2;
-        int xx1,yy2;
-        int newx1, newy1, newxx1, newyy1;
+        int x_letra1,y_letra1;
+        int x_letra2,y_letra2;
+        int new_x_letra1, new_y_letra1, new_x_letra2, new_y_letra2;
 
         for (int i = 0; i < msj.length() - 1; i+=2) {
-            x1 = EncuentraX(msj.charAt(i));
-            y2 = EncuentraY(msj.charAt(i));
-            System.out.println("letra: "+msj.charAt(i)+x1+","+y2);
-            xx1 = EncuentraX(msj.charAt(i + 1));
-            yy2 = EncuentraY(msj.charAt(i + 1));
-            System.out.println("letra: "+msj.charAt(i+1)+xx1+","+yy2);
-            newx1 = EncuentraX1(x1, y2, xx1, yy2);
-            newy1 = EncuentraY1(x1, y2, xx1, yy2);
-            System.out.println("letra: "+msj.charAt(i)+newx1+","+newy1);
-            newxx1 = EncuentraX1(x1, y2, xx1, yy2);
-            newyy1 = EncuentraY1(x1, y2, xx1, yy2);
-            System.out.println("letra: "+msj.charAt(i+1)+newxx1+","+newyy1);
-        }
-        // for (int i = 0; i < msj.length() - 1; i+=2) {
-        // }
-               
-                
-           
-          
+            x_letra1 = EncuentraX(msj.charAt(i));
+            y_letra1 = EncuentraY(msj.charAt(i));
+            System.out.println("letra: "+msj.charAt(i)+x_letra1+","+y_letra1);
+
+            x_letra2 = EncuentraX(msj.charAt(i + 1));
+            y_letra2 = EncuentraY(msj.charAt(i + 1));
+            System.out.println("letra: "+msj.charAt(i+1)+x_letra2+","+y_letra2);
+
+            new_x_letra1 = EncuentraX1(x_letra1, y_letra1, x_letra2, y_letra2);
+            new_y_letra1 = EncuentraY1(x_letra1, y_letra1, x_letra2, y_letra2);
+            System.out.println("letra  C: "+msj.charAt(i)+new_x_letra1+","+new_y_letra1);
+
+            new_x_letra2 = EncuentraX1(x_letra1, y_letra1, x_letra2, y_letra2);
+            new_y_letra2 = EncuentraY1(x_letra1, y_letra1, x_letra2, y_letra2);
+            System.out.println("letra  C: "+msj.charAt(i+1)+new_x_letra2+","+new_y_letra2);
+        }        
         return msjCif;
     }
 
@@ -140,47 +137,46 @@ public class Matriz {
         return 0;
     }
 
-    public int EncuentraX1(int x, int y, int x1, int y1) {
+    public int EncuentraX1(int x_letra1, int y_letra1, int x_letra2, int y_letra2) {
         
         int Coordx;
 
-        if (x == x1) {
-            if (x == 4) {
+        if (x_letra1 == x_letra2) {
+            if (x_letra1 == 4) {
                 Coordx = 0;
             }else{
-                Coordx = x;
+                Coordx = x_letra1 +1;
             }
-        }
-        if(y == y1) {
-            if (y == 4) {
+        }else if(y_letra1 == y_letra2) {
+            if (y_letra1 == 4) {
                 Coordx = 0;
             }else{
-                Coordx = y;
+                Coordx = x_letra1;
             }
         }else{
-            Coordx = x1;
+            Coordx = y_letra2;
         }
         return Coordx;
     }
 
-    public int EncuentraY1(int x, int y, int x1, int y1) {
+    public int EncuentraY1(int x_letra1, int y_letra1, int x_letra2, int y_letra2) {
         
         int Coordy;
 
-        if (x == x1) {
-            if (x == 4) {
+        if (x_letra1 == x_letra2) {
+            if (x_letra1 == 4) {
                 Coordy = 0;
             }else{
-                Coordy = x;
+                Coordy = y_letra1 + 1;
             }
-        }else if(y == y1) {
-            if (y == 4) {
+        }else if(y_letra1 == y_letra2) {
+            if (y_letra1 == 4) {
                 Coordy = 0;
             }else{
-                Coordy = y;
+                Coordy = y_letra1 +1;
             }
         }else{
-            Coordy = y1;
+            Coordy = x_letra2;
         }
         return Coordy;
     }
